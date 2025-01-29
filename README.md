@@ -12,7 +12,7 @@ Add this to your `Cargo.toml`:
 ethnum = "1"
 ```
 
-The API follows the Rust `{i,u}N` primitive types as close as possible.
+The API follows the Rust `{i,u}N` primitive types as closely as possible.
 
 ## Intrinsics
 
@@ -27,7 +27,7 @@ systems (or 64-bit operations on 32-bit systems). In general, these are ported
 from the Clang `compiler-rt` support routines.
 
 This is the default implementation used by the crate, and in general is quite
-well optimized. When using native the implementation, there are no additional
+well optimized. When using native implementation, there are no additional
 dependencies for this crate.
 
 ### LLVM Generated Implementation
@@ -53,8 +53,8 @@ In order to use LLVM-generated intrinsics, enable the `llvm-intrinsics` feature:
 ethnum = { version = "1", features = ["llvm-intrinsics"] }
 ```
 
-And, genererally it is a good idea to compile with `linker-plugin-lto` enabled
-in order to actually take advantage of the the optimized assembly:
+And, generally it is a good idea to compile with `linker-plugin-lto` enabled
+in order to actually take advantage of the optimized assembly:
 
 ```sh
 RUSTFLAGS="-Clinker-plugin-lto -Clinker=clang -Clink-arg=-fuse-ld=lld" cargo build
@@ -62,7 +62,7 @@ RUSTFLAGS="-Clinker-plugin-lto -Clinker=clang -Clink-arg=-fuse-ld=lld" cargo bui
 
 ### API Stability
 
-The instinsics are exported under `ethnum::intrinsics`. That being said, be
+The intrinsics are exported under `ethnum::intrinsics`. That being said, be
 careful when using these intrinsics directly. Semantic versioning API
 compatibility is **not guaranteed** for any of these intrinsics.
 
